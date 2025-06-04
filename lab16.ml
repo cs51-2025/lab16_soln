@@ -49,6 +49,13 @@ let get_efficiency (v : vehicle) : float =
 Exercise 2: Write a function `get_energy` that returns the amount of
 energy a vehicle has available. (Recall that the amount of energy is
 a component of the `vehicle` data type.)
+
+    HINT: You may be able to avoid some duplication by taking
+    advantage of the ability to have multiple "or" patterns in a
+    single `match` clause. An example can be found in the
+    `is_small_int` function in Section 7.2 of the textbook. See
+    <https://ocaml.org/manual/patterns.html#sss:pat-or> for the
+    official documentation.
 ....................................................................*)
    
 let get_energy (veh : vehicle) : float =
@@ -56,9 +63,8 @@ let get_energy (veh : vehicle) : float =
   | Bus (_, energy) 
   | Car (_, energy) 
   | Truck (_, energy) -> energy ;;
-
-(* Notice that by using the same variable name in each of the three
-   alternative patterns, we can share the body. *)
+(* Notice the use of "or" patterns. By using the same variable name in
+   each of the three alternative patterns, we can share the body. *)
 
 (*....................................................................
 Exercise 3: Write a function `get_pos` that returns the x-y position
